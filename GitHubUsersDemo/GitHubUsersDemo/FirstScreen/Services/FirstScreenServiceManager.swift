@@ -8,6 +8,35 @@
 
 import UIKit
 
-class FirstScreenServiceManager: NSObject {
+typealias AuthenticationCallBack = (Bool, Error?) -> Void
 
+let api_Domain  = "https://api.github.com"
+
+let username = "oj.shrivastava@gmail.com"
+let password = "oj65@rgtu#"
+
+class FirstScreenServiceManager: NSObject, URLSessionDelegate {
+    
+    fileprivate static var queue: OperationQueue = OperationQueue.init()
+    fileprivate var session: URLSession?
+    
+    @objc static func initializeIconDownload() {
+        queue.maxConcurrentOperationCount = 1
+        queue.name = "com.shrivastava.oj.githubDemoUserList"
+    }
+    
+    override init() {
+        super.init()
+        session = URLSession(configuration: .default,
+                             delegate: self,
+                             delegateQueue: FirstScreenServiceManager.queue)
+    }
+    
+    func authenticationRequest() {
+        
+        var request = URLRequest(url: URL(string: api_Domain)!)
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpMethod = "GET"
+        
+    }
 }

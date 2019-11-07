@@ -15,6 +15,10 @@
 		5AA82E96237426430019EB8B /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AA82E95237426430019EB8B /* Default-568h@2x.png */; };
 		5AA82E9D237426F70019EB8B /* RepoInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AA82E9C237426F70019EB8B /* RepoInfoTableViewCell.swift */; };
 		5AA82E9F237427160019EB8B /* SecondScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AA82E9E237427160019EB8B /* SecondScreenViewController.swift */; };
+		5AA82EA5237432690019EB8B /* FirstScreenDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AA82EA4237432690019EB8B /* FirstScreenDataSource.swift */; };
+		5AA82EA7237432960019EB8B /* FirstScreenServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AA82EA6237432960019EB8B /* FirstScreenServiceManager.swift */; };
+		5AA82EA9237435990019EB8B /* SecondScreenServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AA82EA8237435990019EB8B /* SecondScreenServiceManager.swift */; };
+		5AA82EAB237435B70019EB8B /* SecondScreenDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AA82EAA237435B70019EB8B /* SecondScreenDataSource.swift */; };
 		5ADBF388237421E400A1B2AC /* UserInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADBF386237421E400A1B2AC /* UserInfoTableViewCell.swift */; };
 		5ADBF389237421E400A1B2AC /* FirstScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADBF387237421E400A1B2AC /* FirstScreenViewController.swift */; };
 /* End PBXBuildFile section */
@@ -30,6 +34,10 @@
 		5AA82E95237426430019EB8B /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		5AA82E9C237426F70019EB8B /* RepoInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoInfoTableViewCell.swift; sourceTree = "<group>"; };
 		5AA82E9E237427160019EB8B /* SecondScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondScreenViewController.swift; sourceTree = "<group>"; };
+		5AA82EA4237432690019EB8B /* FirstScreenDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstScreenDataSource.swift; sourceTree = "<group>"; };
+		5AA82EA6237432960019EB8B /* FirstScreenServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstScreenServiceManager.swift; sourceTree = "<group>"; };
+		5AA82EA8237435990019EB8B /* SecondScreenServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondScreenServiceManager.swift; sourceTree = "<group>"; };
+		5AA82EAA237435B70019EB8B /* SecondScreenDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondScreenDataSource.swift; sourceTree = "<group>"; };
 		5ADBF386237421E400A1B2AC /* UserInfoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoTableViewCell.swift; sourceTree = "<group>"; };
 		5ADBF387237421E400A1B2AC /* FirstScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstScreenViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -80,17 +88,53 @@
 		5AA82E97237426C10019EB8B /* SecondScreen */ = {
 			isa = PBXGroup;
 			children = (
+				5AA82EA3237431B10019EB8B /* UI */,
+				5AA82EA2237431A50019EB8B /* Services */,
+			);
+			path = SecondScreen;
+			sourceTree = "<group>";
+		};
+		5AA82EA0237431740019EB8B /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				5ADBF386237421E400A1B2AC /* UserInfoTableViewCell.swift */,
+				5ADBF387237421E400A1B2AC /* FirstScreenViewController.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		5AA82EA12374317E0019EB8B /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				5AA82EA4237432690019EB8B /* FirstScreenDataSource.swift */,
+				5AA82EA6237432960019EB8B /* FirstScreenServiceManager.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		5AA82EA2237431A50019EB8B /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				5AA82EA8237435990019EB8B /* SecondScreenServiceManager.swift */,
+				5AA82EAA237435B70019EB8B /* SecondScreenDataSource.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		5AA82EA3237431B10019EB8B /* UI */ = {
+			isa = PBXGroup;
+			children = (
 				5AA82E9C237426F70019EB8B /* RepoInfoTableViewCell.swift */,
 				5AA82E9E237427160019EB8B /* SecondScreenViewController.swift */,
 			);
-			path = SecondScreen;
+			path = UI;
 			sourceTree = "<group>";
 		};
 		5ADBF385237421E400A1B2AC /* FirstScreen */ = {
 			isa = PBXGroup;
 			children = (
-				5ADBF386237421E400A1B2AC /* UserInfoTableViewCell.swift */,
-				5ADBF387237421E400A1B2AC /* FirstScreenViewController.swift */,
+				5AA82EA12374317E0019EB8B /* Services */,
+				5AA82EA0237431740019EB8B /* UI */,
 			);
 			path = FirstScreen;
 			sourceTree = "<group>";
@@ -169,10 +213,14 @@
 			files = (
 				5AA82E9F237427160019EB8B /* SecondScreenViewController.swift in Sources */,
 				5AA82E9D237426F70019EB8B /* RepoInfoTableViewCell.swift in Sources */,
+				5AA82EA9237435990019EB8B /* SecondScreenServiceManager.swift in Sources */,
 				5ADBF388237421E400A1B2AC /* UserInfoTableViewCell.swift in Sources */,
 				5ADBF389237421E400A1B2AC /* FirstScreenViewController.swift in Sources */,
 				5A7FAAFB237420E800DA504A /* ViewController.swift in Sources */,
+				5AA82EAB237435B70019EB8B /* SecondScreenDataSource.swift in Sources */,
 				5A7FAAF9237420E800DA504A /* AppDelegate.swift in Sources */,
+				5AA82EA7237432960019EB8B /* FirstScreenServiceManager.swift in Sources */,
+				5AA82EA5237432690019EB8B /* FirstScreenDataSource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

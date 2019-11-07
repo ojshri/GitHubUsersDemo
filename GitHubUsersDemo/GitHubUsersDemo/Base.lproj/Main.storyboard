@@ -13,7 +13,7 @@
         <!--GitHub Searcher-->
         <scene sceneID="Eod-IB-KAV">
             <objects>
-                <viewController storyboardIdentifier="FirstVCID" title="GitHub Searcher" useStoryboardIdentifierAsRestorationIdentifier="YES" id="1Wl-pA-9gu" customClass="FirstScreenViewController" customModule="GitHubUsersDemo1" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FirstVCID" title="GitHub Searcher" useStoryboardIdentifierAsRestorationIdentifier="YES" id="1Wl-pA-9gu" customClass="FirstScreenViewController" customModule="GitHubUsersDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7Gf-Bl-8hd">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -30,7 +30,7 @@
                                 <rect key="frame" x="0.0" y="154" width="414" height="582"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="UserInfoTableViewCellID" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="UserInfoTableViewCellID" rowHeight="60" id="rdv-1x-Bfk" customClass="UserInfoTableViewCell">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="UserInfoTableViewCellID" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="UserInfoTableViewCellID" rowHeight="60" id="rdv-1x-Bfk" customClass="UserInfoTableViewCell" customModule="GitHubUsersDemo" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rdv-1x-Bfk" id="zam-DU-ZZN">
@@ -68,13 +68,17 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="repoCountLabel" destination="kSc-IQ-5P0" id="aED-FB-HAs"/>
-                                            <outlet property="userImageView" destination="gwP-N0-kNk" id="EPg-q9-vOc"/>
-                                            <outlet property="userNameLabel" destination="39Z-yH-4GU" id="XPa-pN-roG"/>
+                                            <outlet property="repoCountLabel" destination="kSc-IQ-5P0" id="BI2-Ac-QPK"/>
+                                            <outlet property="userImageView" destination="gwP-N0-kNk" id="LQB-qq-WdU"/>
+                                            <outlet property="userNameLabel" destination="39Z-yH-4GU" id="Xko-k9-b7i"/>
                                             <segue destination="PwS-AU-YDA" kind="show" identifier="showUserDetailSegue" id="fpc-mh-c9n"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="1Wl-pA-9gu" id="H7z-Tm-FRw"/>
+                                    <outlet property="delegate" destination="1Wl-pA-9gu" id="gxp-Ra-KbQ"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -102,7 +106,7 @@
         <!--Second Screen View Controller-->
         <scene sceneID="lif-eh-Y5H">
             <objects>
-                <viewController id="PwS-AU-YDA" customClass="SecondScreenViewController" customModule="GitHubUsersDemo1" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="PwS-AU-YDA" customClass="SecondScreenViewController" customModule="GitHubUsersDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Hw6-8C-9c2">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -160,7 +164,7 @@
                                 <rect key="frame" x="0.0" y="386" width="414" height="352"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="RepoInfoTableViewCellID" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RepoInfoTableViewCellID" rowHeight="70" id="4cY-p7-5dn" customClass="RepoInfoTableViewCell" customModule="GitHubUsersDemo1" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="RepoInfoTableViewCellID" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RepoInfoTableViewCellID" rowHeight="70" id="4cY-p7-5dn" customClass="RepoInfoTableViewCell" customModule="GitHubUsersDemo" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4cY-p7-5dn" id="33C-iM-ddc">
@@ -200,8 +204,17 @@
                                                 <constraint firstAttribute="trailing" secondItem="Raf-ad-58T" secondAttribute="trailing" constant="20.333333333333314" id="wNf-1m-L9a"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="forksCountLabel" destination="Snt-5L-zQq" id="aYw-GO-daL"/>
+                                            <outlet property="repoNameLabel" destination="Efq-Gl-hmH" id="IH3-5K-sfU"/>
+                                            <outlet property="starsCountLabel" destination="S7j-Zb-fpN" id="pbh-KL-z1v"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="PwS-AU-YDA" id="H2y-Lh-NDM"/>
+                                    <outlet property="delegate" destination="PwS-AU-YDA" id="beN-7b-Zsv"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -218,6 +231,14 @@
                         <viewLayoutGuide key="safeArea" id="yPi-Ok-Ns3"/>
                     </view>
                     <navigationItem key="navigationItem" id="kyJ-hL-6W0"/>
+                    <connections>
+                        <outlet property="containerView" destination="1KT-2U-QIV" id="Ufl-mG-5h3"/>
+                        <outlet property="repoSearchTextField" destination="69O-RH-8fB" id="nYC-Ad-3lL"/>
+                        <outlet property="repoTableView" destination="AnG-9n-vq6" id="VZF-gg-BEL"/>
+                        <outlet property="userBioLabel" destination="leO-OZ-Pmi" id="2tR-gx-lNg"/>
+                        <outlet property="userImageView" destination="hnO-Rt-4IT" id="PlQ-9E-QFW"/>
+                        <outlet property="userInfoLabel" destination="28a-TS-pFc" id="XCH-sd-2bc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yEy-RU-xWj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

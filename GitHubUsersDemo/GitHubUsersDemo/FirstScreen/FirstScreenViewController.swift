@@ -8,6 +8,8 @@
 
 import UIKit
 
+let userInfoTableViewCellID = "UserInfoTableViewCellID"
+
 class FirstScreenViewController: UIViewController {
     
     @IBOutlet weak var userInfoTableView: UITableView!
@@ -20,22 +22,26 @@ class FirstScreenViewController: UIViewController {
     }
 }
 
-
 extension FirstScreenViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView,
+                   heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 60
+    }
+    
+    func tableView(_ tableView: UITableView,
                    numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return 10
     }
     
     func tableView(_ tableView: UITableView,
                    cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        //        guard let cell = UITableViewCell else {
-        //            return UITableViewCell()
-        //        }
+        guard let cell = userInfoTableView.dequeueReusableCell(withIdentifier: userInfoTableViewCellID) as? UserInfoTableViewCell else {
+            return UITableViewCell()
+        }
         
-        return UITableViewCell()
+        return cell
     }
 }
 

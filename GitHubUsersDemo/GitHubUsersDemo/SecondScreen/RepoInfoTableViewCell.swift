@@ -10,6 +10,10 @@ import UIKit
 
 class RepoInfoTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var repoNameLabel: UILabel!
+    @IBOutlet weak var forksCountLabel: UILabel!
+    @IBOutlet weak var starsCountLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

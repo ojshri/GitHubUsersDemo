@@ -10,10 +10,8 @@ import UIKit
 
 typealias AuthenticationCallBack = (Bool, Error?) -> Void
 
-let api_Domain  = "https://api.github.com"
-
-let username = "oj.shrivastava@gmail.com"
-let password = "oj65@rgtu#"
+let userSearchBaseAPI  = "https://api.github.com/search/users?q=oj"
+let repoAPI = "https://api.github.com/users/oj/repos"
 
 class FirstScreenServiceManager: NSObject, URLSessionDelegate {
     
@@ -32,11 +30,46 @@ class FirstScreenServiceManager: NSObject, URLSessionDelegate {
                              delegateQueue: FirstScreenServiceManager.queue)
     }
     
-    func authenticationRequest() {
+    // API call for List Users
+    func listUsers() {
         
-        var request = URLRequest(url: URL(string: api_Domain)!)
+        var request = URLRequest(url: URL(string: userSearchBaseAPI)!)
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpMethod = "GET"
         
+        let usersListTask = session?.dataTask(with: request) { data, response, error in
+            
+            if let error = error {
+                print(error)
+                
+            } else {
+                if let httpURLResponse = response as? HTTPURLResponse {
+                    print("status code \(httpURLResponse.statusCode)")
+                    if let data = data,
+                        httpURLResponse.statusCode == 200 {
+                        
+                        _  = self.retriveJsonFromData(data: data)
+                        print("possibly success")
+                    }
+                }
+            }
+        }
+        usersListTask?.resume()
+    }
+    
+    func retriveJsonFromData(data: Data) -> [String] {
+        do {
+            guard let content = try JSONSerialization.jsonObject(with: data,
+                                                                 options: []) as? String else {
+                                                                    return []
+            }
+            print(content)
+        }
+        catch {
+            print(error)
+        }
+        return []
     }
 }
+
+

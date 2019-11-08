@@ -10,10 +10,15 @@ import UIKit
 
 let userInfoTableViewCellID = "UserInfoTableViewCellID"
 
-class FirstScreenViewController: UIViewController {
+class FirstScreenViewController: UIViewController, URLSessionDelegate {
     
     @IBOutlet weak var userInfoTableView: UITableView!
     @IBOutlet weak var searchField: UITextField!
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        FirstScreenServiceManager().listUsers()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

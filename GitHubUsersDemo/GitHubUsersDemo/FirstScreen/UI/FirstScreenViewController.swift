@@ -17,7 +17,7 @@ class FirstScreenViewController: UIViewController, URLSessionDelegate {
     
     
     override func viewWillAppear(_ animated: Bool) {
-        FirstScreenServiceManager().listUsers()
+        FirstScreenServiceManager().listUsers(with: "")
     }
     
     override func viewDidLoad() {

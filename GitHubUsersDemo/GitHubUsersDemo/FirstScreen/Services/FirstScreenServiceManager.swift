@@ -6,32 +6,29 @@
 //  Copyright © 2019 Oj Shrivastava. All rights reserved.
 //
 
-import UIKit
-
-typealias AuthenticationCallBack = (Bool, Error?) -> Void
+import Foundation
 
 let userSearchBaseAPI  = "https://api.github.com/search/users?q=oj"
-let repoAPI = "https://api.github.com/users/oj/repos"
 
 class FirstScreenServiceManager: NSObject, URLSessionDelegate {
     
-    fileprivate static var queue: OperationQueue = OperationQueue.init()
-    fileprivate var session: URLSession?
-    
-    @objc static func initializeIconDownload() {
-        queue.maxConcurrentOperationCount = 1
-        queue.name = "com.shrivastava.oj.githubDemoUserList"
-    }
+    private static var queue: OperationQueue = OperationQueue.init()
+    private var session: URLSession?
     
     override init() {
+        
+        FirstScreenServiceManager.queue.maxConcurrentOperationCount = 1
+        FirstScreenServiceManager.queue.name = "com.shrivastava.oj.githubDemoUserList"
         super.init()
+        
         session = URLSession(configuration: .default,
                              delegate: self,
                              delegateQueue: FirstScreenServiceManager.queue)
+        
     }
     
     // API call for List Users
-    func listUsers() {
+    func listUsers(with name:String) {
         
         var request = URLRequest(url: URL(string: userSearchBaseAPI)!)
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -57,12 +54,13 @@ class FirstScreenServiceManager: NSObject, URLSessionDelegate {
         usersListTask?.resume()
     }
     
-    func retriveJsonFromData(data: Data) -> [String] {
+    private func retriveJsonFromData(data: Data) -> [String] {
         do {
             guard let content = try JSONSerialization.jsonObject(with: data,
-                                                                 options: []) as? String else {
+                                                                 options: .allowFragments) as? [String : Any] else {
                                                                     return []
             }
+            
             print(content)
         }
         catch {
@@ -71,5 +69,6 @@ class FirstScreenServiceManager: NSObject, URLSessionDelegate {
         return []
     }
 }
+
 
 
